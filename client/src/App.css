@@ -447,6 +447,13 @@ html{
     font-size: 16px;
 }
 
+.form textarea{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
 .form input::placeholder, .form textarea::placeholder{
     color: #DA0037;
 }
