@@ -89,14 +89,14 @@ const login=async(req, res)=>{
     }
 }
 
-const addProject=async(req, res)=>{
-    try{
-        const { title, image,  }
-    }
-    catch(err){
-        return res.status(500).json({ message: "Server error" });
-    }
-}
+// const addProject=async(req, res)=>{
+//     try{
+//         const { title, image,  }
+//     }
+//     catch(err){
+//         return res.status(500).json({ message: "Server error" });
+//     }
+// }
 
 module.exports={
     sendMessage,
