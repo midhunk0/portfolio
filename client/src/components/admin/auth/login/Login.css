@@ -1,0 +1,112 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    height: calc(100vh - 40px);
+    padding: 20px;
+    gap: 16px;
+}
+
+.login h1{
+    color: #EDEDED;
+    font-family: "Anton";
+    font-size: 50px;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login input{
+    padding: 20px;
+    border: none;
+    outline: none;
+    background: #EDEDED;
+    color: #171717;
+    font-size: 16px;
+}
+
+.login input::placeholder{
+    color: #DA0037;
+}
+
+.login .password{
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.login .password input{
+    display: flex;
+    width: 100%;
+}
+
+.login .password img{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 16px;
+}
+
+.login button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: #DA0037;
+    color: #EDEDED;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login img{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.login p{
+    color: #EDEDED;
+    text-align: end;
+}
+
+.login a{
+    text-decoration: none;
+    color: #DA0037;
+    font-weight: bold;
+}
+
+.login a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 1080px){
+    .login{
+        width: 50%;
+    }
+}
+
+@media(max-width: 720px){
+    .login{
+        display: flex;
+        width: calc(100% - 40px);
+        align-items: center;
+    }
+
+    .login h1, .login form, .login p{
+        width: 70%;
+    }
+}
+
+@media(max-width: 486px){
+    .login h1, .login form, .login p{
+        width: 100%;
+    }
+}

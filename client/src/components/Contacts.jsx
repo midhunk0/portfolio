@@ -1,7 +1,7 @@
 // @ts-nocheck
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 function Contacts(){
     const [messageDetails, setMessageDetails]=useState({
@@ -9,7 +9,10 @@ function Contacts(){
         email: "",
         message: ""
     });
-    const apiUrl=import.meta.env.VITE_BACKEND_URL;
+    
+    const apiUrl=import.meta.env.MODE==="development"
+        ? import.meta.env.VITE_APP_DEV_URL
+        : import.meta.env.VITE_APP_PROD_URL;
 
     const sendMessage=async(e)=>{
         e.preventDefault();

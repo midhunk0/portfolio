@@ -1,7 +1,3 @@
-/* .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-} */
-
 /* all */
 *{
     padding: 0;
@@ -55,8 +51,17 @@ html{
     gap: 20px;
 }
 
-.logo a{
+.logo{
     display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logo img{
+    width: 24px;
+    height: 24px;
 }
 
 .inverted{

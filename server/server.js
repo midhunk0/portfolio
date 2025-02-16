@@ -2,7 +2,10 @@
 const express=require("express");
 const mongoose=require("mongoose");
 const cors=require("cors");
+const multer=require("multer");
 const dotenv=require("dotenv").config();
+const cookieParser=require("cookie-parser");
+const upload=require("./config");
 
 const port=8081;
 const app=express();
@@ -12,6 +15,7 @@ app.use(cors({
     credentials: true,
 }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 mongoose.connect(process.env.MONGO_URL)

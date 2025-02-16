@@ -15,6 +15,28 @@ const messageSchema=new mongoose.Schema({
     }
 });
 
+const projectSchema=new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    projectLink: {
+        type: String
+    },
+    githubLink: {
+        type: String
+    },
+    image: {
+        imageName: String,
+        imageType: String,
+        image: Buffer
+    }
+});
+
 const userSchema=new mongoose.Schema({
     username: {
         type: String,
@@ -27,10 +49,15 @@ const userSchema=new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    projects: {
+        type: [projectSchema]
+    },
+    messages: {
+        type: [messageSchema]
     }
 });
 
 const User=mongoose.model("User", userSchema);
-const Messages=mongoose.model("Messages", messageSchema);
 
-module.exports={ User, Messages };
+module.exports={ User };

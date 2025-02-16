@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-function Projects(){
+export default function Projects(){
     return(
         <div className="projectsPage">
             <h1>Projects</h1>
@@ -25,5 +25,3 @@ function Projects(){
         </div>
     )
 };
-
-export default Projects;

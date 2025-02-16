@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-function Home(){
+export default function Home(){
     return(
         <div className="home">
             <h1 className="role">WEB DEVELOPER</h1>
@@ -19,5 +19,3 @@ function Home(){
         </div>
     )
 };
-
-export default Home;

@@ -1,0 +1,85 @@
+.admin-topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    position: sticky; 
+    top: 0; 
+    backdrop-filter: blur(10px);
+    z-index: 1000; 
+}
+
+.admin-logo{
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.admin-logo img{
+    width: 24px;
+    height: 24px;
+}
+
+.admin-topbar-menu{
+    display: none;
+}
+    
+.admin-topbar-menu img{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.admin-topbar-menu-links, .admin-topbar-links{
+    display: flex;
+    gap: 20px;
+}
+
+
+.admin-logo a, .admin-topbar-links a, .admin-topbar-menu-links a{
+    color: #DA0037;
+    text-decoration: none;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.admin-topbar-links a, .admin-topbar-menu-links a{
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-topbar-links a::after, .admin-topbar-menu-links a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #DA0037;
+    bottom: 0;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+.admin-topbar-links a:hover::after, .admin-topbar-menu-links a:hover::after{
+    width: 100%;
+}
+
+@media(max-width: 627px){
+    .admin-topbar-menu{
+        display: flex;
+    }
+
+    .admin-topbar-links{
+        display: none;
+    }
+
+    .admin-topbar-menu-links{
+        position: absolute;
+        top: 78px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+}
