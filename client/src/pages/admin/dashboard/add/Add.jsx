@@ -107,7 +107,7 @@ export default function Add(){
                 <div className="dashboard-add-image" onDrop={handleDrop} onDragOver={handleDragOver}>
                     {showCropper && image ? (
                         <div className="dashboard-add-image-preview">
-                            <Cropper src={image} style={{ height: 200, width: "100%" }} initialAspectRatio={1} guides={false} ref={cropperRef}/>
+                            <Cropper src={image} style={{ height: 200, width: "100%" }} aspectRatio={7 / 4} guides={false} ref={cropperRef}/>
                             <button type="button" onClick={handleCrop}>Crop</button>
                         </div>
                     ) : croppedImage ? (

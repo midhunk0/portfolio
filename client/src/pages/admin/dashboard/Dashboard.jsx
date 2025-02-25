@@ -3,13 +3,13 @@
 import React from "react";
 import "./Dashboard.css";
 import { Outlet } from "react-router-dom";
-import AdminTopbar from "../topbar/AdminTopbar";
+import Topbar from "../../../globals/adminTopbar/Topbar";
 
 export default function Dashboard() {
 
     return (
         <>
-            <AdminTopbar/>
+            <Topbar/>
             <div className="dashboard">
                 <Outlet/>
             </div>

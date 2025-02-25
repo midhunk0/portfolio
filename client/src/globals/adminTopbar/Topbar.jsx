@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-// @ts-nocheck
 import React, { useState } from "react";
-import "./AdminTopbar.css";
+import "./Topbar.css";
 import { useNavigate } from "react-router-dom";
+import { TopbarComponent } from "../../components/topbar/TopbarComponent";
 
 export default function AdminTopbar(){
     const navigate=useNavigate();
@@ -24,21 +24,6 @@ export default function AdminTopbar(){
     }
 
     return(
-        <div className="admin-topbar">
-            <button className="admin-logo" onClick={()=>navigate("/dashboard/add")}>
-                <img src="/logo.png" alt="img"/>
-            </button>
-            <div className="admin-topbar-menu">
-                <img src={showMenu ? "/close.png" : "/menu.png"} alt="menu" onClick={()=>setShowMenu(!showMenu)}/>
-                {showMenu && (
-                    <div className="admin-topbar-menu-links">
-                        {renderLinks()}
-                    </div>
-                )}
-            </div>
-            <div className="admin-topbar-links">
-                {renderLinks()}
-            </div>
-        </div>
+        <TopbarComponent logoFunction={()=>navigate("/dashboard/add")} renderLinks={renderLinks} showMenu={showMenu} setShowMenu={setShowMenu}/>
     )
 }

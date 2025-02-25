@@ -1,6 +1,7 @@
 // @ts-nocheck
 /* eslint-disable no-unused-vars */
 import React from "react";
+import "./Contacts.css";
 import { useState } from "react";
 
 function Contacts(){
@@ -25,7 +26,11 @@ function Contacts(){
             });
             const result=await response.json();
             if(response.ok){
-                console.log(result.message);
+                setMessageDetails({
+                    name: "",
+                    email: "",
+                    message: ""
+                });
             }
         }
         catch(error){

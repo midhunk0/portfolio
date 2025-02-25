@@ -2,17 +2,17 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import Topbar from "./components/Topbar";
-import Home from "./components/Home";
-import ProjectSection from "./components/Projects";
-import About from "./components/About";
-import Contacts from "./components/Contacts";
-import Login from "./components/admin/auth/login/Login";
-import Register from "./components/admin/auth/register/Register";
-import Dashboard from "./components/admin/dashboard/Dashboard";
-import Add from "./components/admin/dashboard/add/Add";
-import Projects from "./components/admin/dashboard/projects/Projects";
-import Messages from "./components/admin/dashboard/messages/Messages";
+import Login from "./pages/admin/auth/login/Login";
+import Register from "./pages/admin/auth/register/Register";
+import Dashboard from "./pages/admin/dashboard/Dashboard";
+import Add from "./pages/admin/dashboard/add/Add";
+import Projects from "./pages/admin/dashboard/projects/Projects";
+import Messages from "./pages/admin/dashboard/messages/Messages";
+import Topbar from "./globals/portfolioTopbar/Topbar";
+import Home from "./pages/portfolio/home/Home";
+import About from "./pages/portfolio/about/About";
+import ProjectSection from "./pages/portfolio/projects/Projects";
+import Contacts from "./pages/portfolio/contacts/Contacts";
 
 function ScrollToSection(){
     const location=useLocation();

@@ -1,15 +1,15 @@
-.admin-topbar{
+.topbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
     position: sticky; 
     top: 0; 
-    backdrop-filter: blur(10px);
+    background: black;
     z-index: 1000; 
 }
 
-.admin-logo{
+.logo{
     display: flex;
     background: none;
     border: none;
@@ -17,40 +17,39 @@
     padding: 0;
 }
 
-.admin-logo img{
+.logo img{
     width: 24px;
     height: 24px;
 }
 
-.admin-topbar-menu{
+.topbar-menu{
     display: none;
 }
-    
-.admin-topbar-menu img{
+
+.topbar-menu img{
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
-.admin-topbar-menu-links, .admin-topbar-links{
+.topbar-menu-links, .topbar-links{
     display: flex;
     gap: 20px;
 }
 
-
-.admin-logo a, .admin-topbar-links a, .admin-topbar-menu-links a{
+.logo a, .topbar-links a, .topbar-menu-links a{
     color: #DA0037;
     text-decoration: none;
     width: fit-content;
     cursor: pointer;
 }
 
-.admin-topbar-links a, .admin-topbar-menu-links a{
+.topbar-links a, .topbar-menu-links a{
     position: relative;
     overflow: hidden;
 }
 
-.admin-topbar-links a::after, .admin-topbar-menu-links a::after{
+.topbar-links a::after, .topbar-menu-links a::after{
     content: "";
     position: absolute;
     left: 0;
@@ -62,24 +61,27 @@
     transition: width 0.3s ease;
 }
 
-.admin-topbar-links a:hover::after, .admin-topbar-menu-links a:hover::after{
+.topbar-links a:hover::after, .topbar-menu-links a:hover::after{
     width: 100%;
 }
 
 @media(max-width: 627px){
-    .admin-topbar-menu{
+    .topbar-menu{
         display: flex;
     }
 
-    .admin-topbar-links{
+    .topbar-links{
         display: none;
     }
 
-    .admin-topbar-menu-links{
+    .topbar-menu-links{
         position: absolute;
-        top: 78px;
-        right: 20px;
+        background: black;
+        /* backdrop-filter: blur(10px); */
+        top: 64px;
+        right: 0px;
         display: flex;
+        padding: 10px;
         flex-direction: column;
     }
 }

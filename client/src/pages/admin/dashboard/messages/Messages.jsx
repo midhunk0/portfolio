@@ -33,22 +33,13 @@ export default function Messages(){
         <div className="dashboard-messages">
             <h1>Messages.</h1>
             <div className="dashboard-messages-list">
-                {/* {messages.map((message, index) => (
+                {messages.map((message, index) => (
                     <div className="dashboard-message" key={index}>
                         <div className="dashboard-message-user">
                             <img src="/user.png" alt="img"/>
                             <h3>{message.email}</h3>
                         </div>
                         <p>{message.message}</p>
-                    </div>
-                ))} */}
-                {[...Array(10)].map((_, index)=>(
-                    <div className="dashboard-message" key={index}>
-                        <div className="dashboard-message-user">
-                            <img src="/user.png" alt="img"/>
-                            <h3>message.email</h3>
-                        </div>
-                        <p>message.message</p>
                     </div>
                 ))}
             </div>
