@@ -34,9 +34,6 @@ function Portfolio(){
     return(
         <>
             <ScrollToSection/>
-            <div className="background">
-                <video src="/video.mp4" autoPlay muted loop/>
-            </div>
             <Topbar/>
             <section id="home"><Home/></section>
             <section id="about"><About/></section>

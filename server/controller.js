@@ -154,16 +154,18 @@ const addProject=async(req, res)=>{
 
 const fetchImage=async(req, res)=>{
     try{
-        const userId=returnUserId(req, res);
         const { projectId }=req.params;
-        const user=await User.findById(userId);
+        const user=await User.findOne(
+            { "projects._id": projectId },
+            { "projects.$": 1 }
+        );
         if(!user){
             return res.status(400).json({ message: "User not found" });
         }
-        const project=user.projects.find(project=>project._id.toString()===projectId);
-        if(!project){
+        if(!user.projects.length){
             return res.status(400).json({ message: "Project not found" });
         }
+        const project=user.projects[0];
         res.set("Content-Type", project.image.imageType);
         return res.status(200).send(project.image.image);
     }
@@ -175,19 +177,14 @@ const fetchImage=async(req, res)=>{
 const fetchProjects=async(req, res)=>{
     try{
         const apiUrl="http://localhost:8081";
-        const userId=returnUserId(req, res);
-        const user=await User.findById(userId);
+        const user=await User.findOne();
         if(!user){
             return res.status(400).json({ message: "User not found" });
         }
-        const projectsWithImage=user.projects.map(project=>{
-            const imageUrl=`${apiUrl}/fetchImage/${project._id}`;
-            const { image, ...projectData }=project.toObject();
-            return{
-                ...projectData,
-                imageUrl
-            }
-        })
+        const projectsWithImage=user.projects.map(project=>({
+            ...project.toObject(),
+            imageUrl: `${apiUrl}/fetchImage/${project._id}`
+        }));
         return res.status(200).json(projectsWithImage);
     }
     catch(err){

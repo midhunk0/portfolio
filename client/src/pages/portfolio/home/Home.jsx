@@ -8,14 +8,14 @@ export default function Home(){
             <h1 className="role">WEB DEVELOPER</h1>
             <h2 className="name">MIDHUNRAJ</h2>
             <div className="techs">
-                <p className="css">CSS</p>
-                <p className="html">HTML</p>
-                <p className="js">JAVASCRIPT</p>
-                <p className="react">REACT</p>
-                <p className="angular">ANGULAR</p>
-                <p className="node">NODE.JS</p>
-                <p className="express">EXPRESS.JS</p>
-                <p className="ts">TYPESCRIPT</p>
+                <p className="tech css">CSS</p>
+                <p className="tech html">HTML</p>
+                <p className="tech js">JAVASCRIPT</p>
+                <p className="tech react">REACT</p>
+                <p className="tech angular">ANGULAR</p>
+                <p className="tech node">NODE.JS</p>
+                <p className="tech express">EXPRESS.JS</p>
+                <p className="tech ts">TYPESCRIPT</p>
             </div>
         </div>
     )

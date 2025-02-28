@@ -99,11 +99,72 @@
         font-size: 75px;
     }
 
-    .techs p{
+    .techs{
+        width: 90%;
+        margin-inline: auto;
         position: relative;
+        height: 42px;
+        margin-top: 16px;
+        overflow: hidden;
+        padding: 0;
+        mask-image: linear-gradient(
+            to right, 
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 1) 20%,
+            rgba(0, 0, 0, 1) 80%,
+            rgba(0, 0, 0, 0)
+        );
+    }
+
+    @keyframes scrollLeft{
+        to{
+            left: -200px;
+        }
+    }
+
+    .tech{
+        width: 150px;
+        display: grid;
+        place-content: center;
+        border-radius: 8px;
+        background-color: #DA0037;
+        position: absolute;
+        color: #EDEDED;
+        left: max(calc(200px * 8), 100%);
         top: 0;
-        left: 0;
-        flex-wrap: wrap;
+        animation: scrollLeft 30s linear infinite;
+    }
+
+    .css{
+        animation-delay: calc(30s / 8 * (8 - 1) * -1);
+    }
+
+    .html{
+        animation-delay: calc(30s / 8 * (8 - 2) * -1);
+    }
+
+    .js{
+        animation-delay: calc(30s / 8 * (8 - 3) * -1);
+    }
+
+    .react{
+        animation-delay: calc(30s / 8 * (8 - 4) * -1);
+    }
+
+    .angular{
+        animation-delay: calc(30s / 8 * (8 - 5) * -1);
+    }
+
+    .node{
+        animation-delay: calc(30s / 8 * (8 - 6) * -1);
+    }
+
+    .express{
+        animation-delay: calc(30s / 8 * (8 - 7) * -1);
+    }
+
+    .ts{
+        animation-delay: calc(30s / 8 * (8 - 8) * -1);
     }
 }
 

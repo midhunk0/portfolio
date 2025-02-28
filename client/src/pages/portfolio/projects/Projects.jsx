@@ -9,6 +9,7 @@ export default function Projects(){
         : import.meta.env.VITE_APP_PROD_URL;
 
     const [projects, setProjects]=useState([]);
+    const [loading, setLoading]=useState(true);
     
     useEffect(()=>{
         async function fetchProjects(){
@@ -20,10 +21,14 @@ export default function Projects(){
                 const result=await response.json();
                 if(response.ok){
                     setProjects(result);
+                    console.log(result);
                 }
             }
             catch(error){
                 console.log(error);
+            }
+            finally{
+                setLoading(false);
             }
         };
         fetchProjects();
@@ -33,23 +38,38 @@ export default function Projects(){
         <div className="projectsPage">
             <h1>Projects</h1>
             <div className="projectsPage-projects">
-                {projects.map((project, index) => (
-                    <div className="projectsPage-project" key={index}>
-                        <img src={project.imageUrl} alt="proj" className="projectsPage-project-image"/>
-                        <div className="projectsPage-project-details">
-                            <h3>{project.title}</h3>
-                            <p>{project.description}</p>
-                            <div className="projectsPage-project-links">
-                                <a href={project.projectLink} target="_blank" rel="noopener noreferrer">
-                                    <img src="/arrow.png" alt="img" className="projectsPage-icon"/>
-                                </a>
-                                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                                    <img src="/github.png" alt="img" className="projectsPage-icon"/>
-                                </a>
+                {loading ? 
+                    [...Array(6)].map((_, index) => (
+                        <div className="skeleton" key={index}>
+                            <div className="skeleton-image"></div>
+                            <div className="projectsPage-project-details">
+                                <div className="skeleton-text"></div>
+                                <div className="skeleton-text"></div>
+                                <div className="projectsPage-project-links">
+                                    <div className="skeleton-icon"></div>
+                                    <div className="skeleton-icon"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                :
+                    projects.map((project, index) => (
+                        <div className="projectsPage-project" key={index}>
+                            <img src={project.imageUrl} alt="proj" className="projectsPage-project-image"/>
+                            <div className="projectsPage-project-details">
+                                <h3>{project.title}</h3>
+                                <p>{project.description}</p>
+                                <div className="projectsPage-project-links">
+                                    <a href={project.projectLink} target="_blank" rel="noopener noreferrer">
+                                        <img src="/arrow.png" alt="img" className="projectsPage-icon"/>
+                                    </a>
+                                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                                        <img src="/github.png" alt="img" className="projectsPage-icon"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
 
                 {/* {[...Array(10)].map((_, index)=>(
                     <div className="projectsPage-project" key={index}>
