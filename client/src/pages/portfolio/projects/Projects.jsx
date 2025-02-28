@@ -38,7 +38,7 @@ export default function Projects(){
         <div className="projectsPage">
             <h1>Projects</h1>
             <div className="projectsPage-projects">
-                {loading ? 
+                {/* {loading ? 
                     [...Array(6)].map((_, index) => (
                         <div className="skeleton" key={index}>
                             <div className="skeleton-image"></div>
@@ -69,9 +69,10 @@ export default function Projects(){
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    ))
+                } */}
 
-                {/* {[...Array(10)].map((_, index)=>(
+                {[...Array(10)].map((_, index)=>(
                     <div className="projectsPage-project" key={index}>
                         <a href="https://weather-midhunk0.vercel.app"><img src="/proj1.png" alt="proj1" className="projectsPage-project-image"/></a>
                         <div className="projectsPage-project-details">
@@ -87,7 +88,7 @@ export default function Projects(){
                             </div>
                         </div>
                     </div>
-                ))} */}
+                ))}
             </div>
         </div>
     )

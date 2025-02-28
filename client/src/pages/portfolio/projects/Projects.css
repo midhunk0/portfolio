@@ -55,7 +55,7 @@
 
 .projectsPage-project-links a{
     display: flex;
-    padding: 0;
+    /* padding: 0; */
 }
 
 .projectsPage-icon{

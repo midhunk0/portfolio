@@ -47,7 +47,7 @@ export default function App(){
     return (
         <Router>
             <div className="background">
-                <video src="/video.mp4" autoPlay muted loop/>
+                {/* <video src="/video.mp4" autoPlay muted loop/> */}
             </div>
             <Routes>
                 <Route path="/" element={<Portfolio/>}/>

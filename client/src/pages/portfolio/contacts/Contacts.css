@@ -52,7 +52,9 @@
 }
 
 .contactDetails a{
+    display: flex;
     text-decoration: none;
+    padding: 0;
 }
 
 .contactDetails h3{
