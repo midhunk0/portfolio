@@ -6,19 +6,19 @@ import "./TopbarComponent.css";
 export function TopbarComponent({ logoFunction, renderLinks, setShowMenu, showMenu }){
 
     return(
-        <div className="topbar">
-            <button className="logo" onClick={logoFunction}>
+        <div className="topbarComponent">
+            <button data-cursor="topbar-image" className="topbarComponent-logo" onClick={logoFunction}>
                 <img src="/logo.png" alt="logo"/>
             </button>
-            <div className="topbar-menu">
+            <div className="topbarComponent-menu">
                 <img src={showMenu ? "/close.png" : "/menu.png"} alt="menu" onClick={()=>setShowMenu(prev=>!prev)}/>
                 {showMenu && (
-                    <div className="topbar-menu-links">
+                    <div className="topbarComponent-menu-links">
                         {renderLinks()}
                     </div>
                 )}
             </div>
-            <div className="topbar-links">
+            <div className="topbarComponent-links">
                 {renderLinks()}
             </div>
         </div>

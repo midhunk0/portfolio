@@ -1,4 +1,4 @@
-.topbar{
+.topbarComponent{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,7 +9,7 @@
     z-index: 1000; 
 }
 
-.logo{
+.topbarComponent-logo{
     display: flex;
     background: none;
     border: none;
@@ -17,64 +17,64 @@
     padding: 0;
 }
 
-.logo img{
+.topbarComponent-logo img{
     width: 24px;
     height: 24px;
 }
 
-.topbar-menu{
+.topbarComponent-menu{
     display: none;
 }
 
-.topbar-menu img{
+.topbarComponent-menu img{
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
-.topbar-menu-links, .topbar-links{
+.topbarComponent-menu-links, .topbarComponent-links{
     display: flex;
     gap: 20px;
 }
 
-.logo a, .topbar-links a, .topbar-menu-links a{
-    color: #DA0037;
+.topbarComponent-logo a, .topbarComponent-links a, .topbarComponent-menu-links a{
+    color: #BE3144;
     text-decoration: none;
     width: fit-content;
     cursor: pointer;
 }
 
-.topbar-links a, .topbar-menu-links a{
+.topbarComponent-links a, .topbarComponent-menu-links a{
     position: relative;
     overflow: hidden;
 }
-
-.topbar-links a::after, .topbar-menu-links a::after{
+/* 
+.topbarComponent-links a::after, .topbarComponent-menu-links a::after{
     content: "";
     position: absolute;
     left: 0;
     width: 0;
     height: 2px;
-    background: #DA0037;
+    background: #BE3144;
     bottom: 0;
     border-radius: 8px;
     transition: width 0.3s ease;
-}
+} */
 
-.topbar-links a:hover::after, .topbar-menu-links a:hover::after{
+.topbarComponent-links a:hover::after, .topbarComponent-menu-links a:hover::after{
     width: 100%;
 }
 
 @media(max-width: 627px){
-    .topbar-menu{
+    .topbarComponent-menu{
         display: flex;
     }
 
-    .topbar-links{
+    .topbarComponent-links{
         display: none;
     }
 
-    .topbar-menu-links{
+    .topbarComponent-menu-links{
         position: absolute;
         background: black;
         /* backdrop-filter: blur(10px); */

@@ -13,9 +13,12 @@ import Home from "./pages/portfolio/home/Home";
 import About from "./pages/portfolio/about/About";
 import ProjectSection from "./pages/portfolio/projects/Projects";
 import Contacts from "./pages/portfolio/contacts/Contacts";
+import useMousePosition from "./globals/useMousePosition";
+import Cursor from "./components/cursor/Cursor";
 
 function ScrollToSection(){
     const location=useLocation();
+    useMousePosition();
 
     useEffect(()=>{
         if(location.hash){
@@ -46,8 +49,9 @@ function Portfolio(){
 export default function App(){
     return (
         <Router>
+            <Cursor/>
             <div className="background">
-                {/* <video src="/video.mp4" autoPlay muted loop/> */}
+                <video src="/video.mp4" autoPlay muted loop/>
             </div>
             <Routes>
                 <Route path="/" element={<Portfolio/>}/>

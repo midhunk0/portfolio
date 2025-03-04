@@ -30,7 +30,7 @@
 }
 
 .login input::placeholder{
-    color: #DA0037;
+    color: #BE3144;
 }
 
 .login .password{
@@ -57,7 +57,7 @@
     justify-content: center;
     gap: 10px;
     padding: 20px;
-    background: #DA0037;
+    background: #BE3144;
     color: #EDEDED;
     border: none;
     outline: none;
@@ -79,7 +79,7 @@
 
 .login a{
     text-decoration: none;
-    color: #DA0037;
+    color: #BE3144;
     font-weight: bold;
 }
 

@@ -5,8 +5,8 @@ import "./Home.css";
 export default function Home(){
     return(
         <div className="home">
-            <h1 className="role">WEB DEVELOPER</h1>
-            <h2 className="name">MIDHUNRAJ</h2>
+            <h1 data-cursor="role" className="role">WEB DEVELOPER</h1>
+            <h2 data-cursor="name" className="name">MIDHUNRAJ</h2>
             <div className="techs">
                 <p className="tech css">CSS</p>
                 <p className="tech html">HTML</p>

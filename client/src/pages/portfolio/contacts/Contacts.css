@@ -124,7 +124,7 @@
 }
 
 .form input::placeholder, .form textarea::placeholder{
-    color: #DA0037;
+    color: #BE3144;
 }
 
 .form button{
@@ -135,7 +135,7 @@
     padding: 20px;
     width: 100%;
     color: #EDEDED;
-    background: #DA0037;
+    background: #BE3144;
     box-sizing: border-box;
     border: none;
     outline: none;
