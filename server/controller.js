@@ -41,6 +41,7 @@ const fetchMessages=async(req, res)=>{
     try{
         const userId=returnUserId(req, res);
         const user=await User.findById(userId);
+        console.log(user);
         const messages=user.messages;
         if(!messages.length){
             return res.status(400).json({ message: "There is no messages" })
@@ -110,6 +111,24 @@ const login=async(req, res)=>{
     }
 }
 
+const fetchUser=async(req, res)=>{
+    try{
+        const userId=returnUserId(req, res);
+        if(!userId){
+            return res.status(400).json({ message: "No userId or token found" });
+        }
+        const user=await User.findById(userId);
+        if(!user){
+            return res.status(400).json({ message: "User not found" });
+        }
+        return res.status(200).json({ user: true });
+    
+    }
+    catch(err){
+        return res.status(500).json({ message: "Server error" });
+    }
+}
+
 const addProject=async(req, res)=>{
     const userId=returnUserId(req, res);
     try{
@@ -148,7 +167,7 @@ const addProject=async(req, res)=>{
         return res.status(200).json({ message: "New project added", project });
     }
     catch(err){
-        return res.status(500).json({ message: "Server error" });
+        return res.status(500).json({ message: err });
     }
 };
 
@@ -197,6 +216,7 @@ module.exports={
     fetchMessages,
     register, 
     login,
+    fetchUser,
     addProject,
     fetchImage,
     fetchProjects

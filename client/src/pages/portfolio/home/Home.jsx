@@ -4,7 +4,7 @@ import "./Home.css";
 
 export default function Home(){
     return(
-        <div className="home">
+        <section id="home" className="home">
             <h1 data-cursor="role" className="role">WEB DEVELOPER</h1>
             <h2 data-cursor="name" className="name">MIDHUNRAJ</h2>
             <div className="techs">
@@ -17,6 +17,6 @@ export default function Home(){
                 <p className="tech express">EXPRESS.JS</p>
                 <p className="tech ts">TYPESCRIPT</p>
             </div>
-        </div>
+        </section>
     )
 };

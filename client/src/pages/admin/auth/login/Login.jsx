@@ -42,17 +42,17 @@ export default function Login(){
 
     return(
         <div className="login">
-            <h1>Welcome Back.</h1>
+            <h1 data-cursor="heading">Welcome Back.</h1>
             <form onSubmit={login}>
-                <input type="text" placeholder="Username or Email" value={loginData.credential} onChange={(e)=>setLoginData({...loginData, credential: e.target.value})}/>
+                <input data-cursor="line" type="text" placeholder="Username or Email" value={loginData.credential} onChange={(e)=>setLoginData({...loginData, credential: e.target.value})}/>
                 <div className="password">
-                    <input type={visible ? "text" : "password"} placeholder="Password" value={loginData.password} onChange={(e)=>setLoginData({...loginData, password: e.target.value})}/>
-                    <img src={visible ? "/visible.png" : "visible-off.png"} alt="visible" onClick={()=>setVisible(!visible)}/>
+                    <input data-cursor="line" type={visible ? "text" : "password"} placeholder="Password" value={loginData.password} onChange={(e)=>setLoginData({...loginData, password: e.target.value})}/>
+                    <img data-cursor="icon" src={visible ? "/visible.png" : "visible-off.png"} alt="visible" onClick={()=>setVisible(!visible)}/>
                 </div>
-                <button type="submit" onClick={login}>Login<img src="/white-arrow.png" alt="arrow"/></button>
+                <button data-cursor="button" type="submit" onClick={login}>Login<img src="/white-arrow.png" alt="arrow"/></button>
             </form>
             <p>
-                Don&apos;t have an account? <a href="/register">Register</a>
+                Don&apos;t have an account? <a data-cursor="link" href="/register">Register</a>
             </p>
         </div>
     )

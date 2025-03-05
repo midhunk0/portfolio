@@ -26,10 +26,10 @@ export default function Topbar(){
     function renderLinks(){
         return(
             <>
-                <a data-cursor="topbar-item" onClick={scrollToTop}><h3>Home</h3></a>
-                <a data-cursor="topbar-item" onClick={()=>scrollToSection("about")}><h3>About</h3></a>
-                <a data-cursor="topbar-item" onClick={()=>scrollToSection("projects")}><h3>Projects</h3></a>
-                <a data-cursor="topbar-item" onClick={()=>scrollToSection("contacts")}><h3>Contacts</h3></a>
+                <a data-cursor="link" onClick={scrollToTop}><h3>Home</h3></a>
+                <a data-cursor="link" onClick={()=>scrollToSection("about")}><h3>About</h3></a>
+                <a data-cursor="link" onClick={()=>scrollToSection("projects")}><h3>Projects</h3></a>
+                <a data-cursor="link" onClick={()=>scrollToSection("contacts")}><h3>Contacts</h3></a>
             </>
         )
     }

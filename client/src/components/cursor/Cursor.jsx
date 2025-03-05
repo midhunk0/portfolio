@@ -9,6 +9,7 @@ const Cursor=()=>{
     const { x, y }=useMousePosition();
     const [hoverStyle, setHoverStyle]=useState(null);
     const [size, setSize]=useState(10);
+    const [maskImage, setMaskImage]=useState("mask.svg");
 
     useEffect(()=>{
         const handleMouseEnter=(e)=>{
@@ -16,15 +17,20 @@ const Cursor=()=>{
             const hoverType=element.getAttribute("data-cursor");
             setHoverStyle(hoverType);
             switch(hoverType){
-                case "topbar-item": case "topbar-image": setSize(36); break;
+                case "link": case "icon": setSize(36); break;
                 case "role": setSize(200); break;
                 case "name": setSize(150); break;
+                case "button": setSize(50); break;
+                case "heading": setSize(150); break;
+                case "line": setSize(50); break;
                 default: setSize(10); break;
             }
+            setMaskImage(hoverType==="line" ? "line.svg" : "mask.svg");
         }
 
         const handleMouseLeave=()=>{
             setHoverStyle(null);
+            setMaskImage("mask.svg");
             setSize(10);
         }
         
@@ -51,6 +57,7 @@ const Cursor=()=>{
             //     top: `${y-size/2}px`,
             // }}
             animate={{
+                WebkitMaskImage: `url(/${maskImage})`,
                 WebkitMaskPosition: `${x-size/2}px ${y-size/2}px`,
                 WebkitMaskSize: `${size}px`,
             }}

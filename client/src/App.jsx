@@ -15,6 +15,8 @@ import ProjectSection from "./pages/portfolio/projects/Projects";
 import Contacts from "./pages/portfolio/contacts/Contacts";
 import useMousePosition from "./globals/useMousePosition";
 import Cursor from "./components/cursor/Cursor";
+import { MessageProvider } from "./contexts/MessageContext";
+import { ProjectProvider } from "./contexts/ProjectsContext";
 
 function ScrollToSection(){
     const location=useLocation();
@@ -38,10 +40,10 @@ function Portfolio(){
         <>
             <ScrollToSection/>
             <Topbar/>
-            <section id="home"><Home/></section>
-            <section id="about"><About/></section>
-            <section id="projects"><ProjectSection/></section>
-            <section id="contacts"><Contacts/></section>
+            <Home/>
+            <About/>
+            <ProjectSection/>
+            <Contacts/>
         </>
     )
 }
@@ -57,7 +59,13 @@ export default function App(){
                 <Route path="/" element={<Portfolio/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
-                <Route path="/dashboard" element={<Dashboard/>}>
+                <Route path="/dashboard" element={
+                    <MessageProvider>
+                        <ProjectProvider>
+                            <Dashboard/>
+                        </ProjectProvider>
+                    </MessageProvider>
+                }>
                     <Route path="" element={<Add/>}/>
                     <Route path="add" element={<Add/>}/>
                     <Route path="projects" element={<Projects/>}/>

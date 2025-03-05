@@ -43,18 +43,18 @@ export default function Register(){
 
     return(
         <div className="register">
-            <h1>Create User</h1>
+            <h1 data-cursor="heading">Create User</h1>
             <form onSubmit={register}>
-                <input type="text" placeholder="Username" value={registerData.username} onChange={(e)=>setRegisterData({...registerData, username: e.target.value})}/>
-                <input type="email" placeholder="Email" value={registerData.email} onChange={(e)=>setRegisterData({...registerData, email: e.target.value})}/>
+                <input data-cursor="line" type="text" placeholder="Username" value={registerData.username} onChange={(e)=>setRegisterData({...registerData, username: e.target.value})}/>
+                <input data-cursor="line" type="email" placeholder="Email" value={registerData.email} onChange={(e)=>setRegisterData({...registerData, email: e.target.value})}/>
                 <div className="password">
-                    <input type={visible ? "text" : "password"} placeholder="Password" value={registerData.password} onChange={(e)=>setRegisterData({...registerData, password: e.target.value})}/>
-                    <img src={visible ? "/visible.png" : "visible-off.png"} alt="visible" onClick={()=>setVisible(!visible)}/>
+                    <input data-cursor="line" type={visible ? "text" : "password"} placeholder="Password" value={registerData.password} onChange={(e)=>setRegisterData({...registerData, password: e.target.value})}/>
+                    <img data-cursor="icon" src={visible ? "/visible.png" : "visible-off.png"} alt="visible" onClick={()=>setVisible(!visible)}/>
                 </div>
-                <button type="button" onClick={register}>Register<img src="/white-arrow.png" alt="arrow"/></button>
+                <button data-cursor="button" type="button" onClick={register}>Register<img src="/white-arrow.png" alt="arrow"/></button>
             </form>
             <p>
-                Already have an account? <a href="/login">Login</a>
+                Already have an account? <a data-cursor="link" href="/login">Login</a>
             </p>
         </div>
     )

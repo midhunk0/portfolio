@@ -102,33 +102,33 @@ export default function Add(){
     }
     return(
         <div className="dashboard-add">
-            <h1>Add Project.</h1>
+            <h1 data-cursor="heading">Add Project.</h1>
             <form onSubmit={addProject}>
                 <div className="dashboard-add-image" onDrop={handleDrop} onDragOver={handleDragOver}>
                     {showCropper && image ? (
                         <div className="dashboard-add-image-preview">
                             <Cropper src={image} style={{ height: 200, width: "100%" }} aspectRatio={7 / 4} guides={false} ref={cropperRef}/>
-                            <button type="button" onClick={handleCrop}>Crop</button>
+                            <button data-cursor="button" type="button" onClick={handleCrop}>Crop</button>
                         </div>
                     ) : croppedImage ? (
                         <div className="dashboard-add-cropped-image-preview">
                             <img src={croppedImage} alt="Cropped" />
-                            <button type="button" onClick={handleRemoveImage}>Remove</button>
+                            <button data-cursor="button" type="button" onClick={handleRemoveImage}>Remove</button>
                         </div>
                     ) : (
                         <div className="dashboard-add-image-upload">
                             <p>Drag and drop image here or select a file</p>
                             <input type="file" onChange={handleFileChange} id="fileInput"/>
-                            <label htmlFor="fileInput">Choose Image</label>
+                            <label data-cursor="button" htmlFor="fileInput">Choose Image</label>
                         </div>
                     )}
                 </div>
                 <div className="dashboard-add-form">
-                    <input type="text" placeholder="Title" value={projectData.title} onChange={(e)=>setProjectData({ ...projectData, title: e.target.value })}/>
-                    <input type="text" placeholder="Description" value={projectData.description} onChange={(e) => setProjectData({ ...projectData, description: e.target.value }) } />
-                    <input type="text" placeholder="Project Link" value={projectData.projectLink} onChange={(e) => setProjectData({ ...projectData, projectLink: e.target.value }) } />
-                    <input type="text" placeholder="Github Link" value={projectData.githubLink} onChange={(e) => setProjectData({ ...projectData, githubLink: e.target.value }) } />
-                    <button type="submit" onClick={addProject}>
+                    <input data-cursor="line" type="text" placeholder="Title" value={projectData.title} onChange={(e)=>setProjectData({ ...projectData, title: e.target.value })}/>
+                    <input data-cursor="line" type="text" placeholder="Description" value={projectData.description} onChange={(e) => setProjectData({ ...projectData, description: e.target.value }) } />
+                    <input data-cursor="line" type="text" placeholder="Project Link" value={projectData.projectLink} onChange={(e) => setProjectData({ ...projectData, projectLink: e.target.value }) } />
+                    <input data-cursor="line" type="text" placeholder="Github Link" value={projectData.githubLink} onChange={(e) => setProjectData({ ...projectData, githubLink: e.target.value }) } />
+                    <button data-cursor="button" type="submit" onClick={addProject}>
                         Submit <img src="/white-arrow.png" alt="arrow" />
                     </button>
                 </div>

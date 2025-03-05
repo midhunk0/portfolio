@@ -4,10 +4,10 @@ import "./About.css";
 
 function About(){
     return(
-        <div className="about">
-            <h1>About</h1>
+        <section id="about" className="about">
+            <h1 data-cursor="heading">About</h1>
             <div className="aboutContent">
-                <h2>
+                <h2 data-cursor="line">
                     hello, World! I&apos;m a FrontEnd web developer with 2+ years of experience, and my skill set encompasses a wide range of expertise:
                 </h2>
                 <div className="technologies">
@@ -25,7 +25,7 @@ function About(){
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 };
 

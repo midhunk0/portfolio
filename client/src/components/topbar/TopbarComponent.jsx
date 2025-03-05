@@ -7,11 +7,11 @@ export function TopbarComponent({ logoFunction, renderLinks, setShowMenu, showMe
 
     return(
         <div className="topbarComponent">
-            <button data-cursor="topbar-image" className="topbarComponent-logo" onClick={logoFunction}>
+            <button data-cursor="icon" className="topbarComponent-logo" onClick={logoFunction}>
                 <img src="/logo.png" alt="logo"/>
             </button>
             <div className="topbarComponent-menu">
-                <img src={showMenu ? "/close.png" : "/menu.png"} alt="menu" onClick={()=>setShowMenu(prev=>!prev)}/>
+                <img data-cursor="icon" src={showMenu ? "/close.png" : "/menu.png"} alt="menu" onClick={()=>setShowMenu(prev=>!prev)}/>
                 {showMenu && (
                     <div className="topbarComponent-menu-links">
                         {renderLinks()}

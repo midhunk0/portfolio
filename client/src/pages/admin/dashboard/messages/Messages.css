@@ -8,17 +8,23 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    overflow: scroll;
+    height: calc(100vh - 200px);
 }
 
-.dashboard-message{
+.dashboard-message, .dashboard-message-skeleton{
     display: flex;
     flex-direction: column;
     color: #000;
     padding: 16px;
-    background: #EDEDED;
+    background: white;
 }
 
-.dashboard-message-user{
+.dashboard-message-skeleton{
+    gap: 19px;
+}
+
+.dashboard-message-user, .dashboard-message-user-skeleton{
     display: flex;
     gap: 10px;
 }
@@ -28,6 +34,31 @@
     height: 24px;
 }
 
+.dashboard-message-user-image-skeleton{
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(90deg, #f4f4f4 25%, #e0e0e0 50%, #f4f4f4 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 50%;
+    /* background: red; */
+}
+
 .dashboard-message p{
     padding: 10px;
+}
+
+.dashboard-message-user-name-skeleton{
+    width: 200px;
+    background: linear-gradient(90deg, #f4f4f4 25%, #e0e0e0 50%, #f4f4f4 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.dashboard-message-user-message-skeleton{
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg, #f4f4f4 25%, #e0e0e0 50%, #f4f4f4 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
 }
