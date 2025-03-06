@@ -23,6 +23,7 @@ const Cursor=()=>{
                 case "button": setSize(50); break;
                 case "heading": setSize(150); break;
                 case "line": setSize(50); break;
+                case "tech": setSize(35); break;
                 default: setSize(10); break;
             }
             setMaskImage(hoverType==="line" ? "line.svg" : "mask.svg");

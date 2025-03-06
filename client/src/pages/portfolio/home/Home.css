@@ -5,14 +5,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 78px - 40px);
+    height: calc(100vh - 64px - 40px);
+    /* height: 100vh; */
     margin: 0 10%;
 }
 
 .role{
     color: #EDEDED;
     font-family: "Anton";
-    font-size: 150px;
+    font-size: 12vw;
     line-height: 1;
     cursor: default;
 }
@@ -22,20 +23,18 @@
 }
 
 .name{
-    color: #BE3144;
+    color: #EDEDED;
     font-family: "Anton";
-    font-size: 100px;
-    line-height: 1;
+    font-size: 9vw;
     cursor: default;
 }
 
 .techs{
-    width: 90%;
+    width: 100%;
     margin-inline: auto;
     position: relative;
-    height: 42px;
+    height: 44px;
     overflow: hidden;
-    padding: 20px 0;
     mask-image: linear-gradient(
         to right, 
         rgba(0, 0, 0, 0),
@@ -45,117 +44,71 @@
     );
 }
 
-@keyframes scrollLeft{
-    to{
-        left: -200px;
-    }
-}
-
 .tech{
     width: 150px;
     display: grid;
     place-content: center;
     border-radius: 24px;
     padding: 10px 25px;
-    background-color: #EDEDED;
+    background-color: #BE3144;
     position: absolute;
-    color: #171717;
-    left: max(calc(200px * 8), 100%);
+    color: #EDEDED;
+    right: max(calc(200px * 8), 100%);
     font-size: 20px;
-    animation: scrollLeft 30s linear infinite;
+    animation: scrollRight 30s linear infinite;
+}
+
+@keyframes scrollRight{
+    to{
+        right: -200px;
+    }
 }
 
 .css{
-    animation-delay: calc(30s / 8 * (8 - 1) * -1);
+    animation-delay: calc(30s/8*(8 - 1)*-1);
 }
 
 .html{
-    animation-delay: calc(30s / 8 * (8 - 2) * -1);
+    animation-delay: calc(30s/8*(8 - 2)*-1);
 }
 
 .js{
-    animation-delay: calc(30s / 8 * (8 - 3) * -1);
+    animation-delay: calc(30s/8*(8 - 3)*-1);
 }
 
 .react{
-    animation-delay: calc(30s / 8 * (8 - 4) * -1);
+    animation-delay: calc(30s/8*(8 - 4)*-1);
 }
 
 .angular{
-    animation-delay: calc(30s / 8 * (8 - 5) * -1);
+    animation-delay: calc(30s/8*(8 - 5)*-1);
 }
 
 .node{
-    animation-delay: calc(30s / 8 * (8 - 6) * -1);
+    animation-delay: calc(30s/8*(8 - 6)*-1);
 }
 
 .express{
-    animation-delay: calc(30s / 8 * (8 - 7) * -1);
+    animation-delay: calc(30s/8*(8 - 7)*-1);
 }
 
 .ts{
-    animation-delay: calc(30s / 8 * (8 - 8) * -1);
-}
-
-@media(max-width: 1213px){
-    .role{
-        font-size: 125px;
-    }
-
-    .name{
-        font-size: 75px;
-    }
-}
-
-@media(max-width: 970px){
-    .role{
-        font-size: 100px;
-    }
-
-    .name{
-        font-size: 50px;
-    }
-}
-
-@media(max-width: 785px){
-    .role{
-        font-size: 75px;
-    }
-
-    .name{
-        font-size: 50px;
-    }
+    animation-delay: calc(30s/8*(8 - 8)*-1);
 }
 
 @media(max-width: 627px){
     .home{
         margin: 0;
-    }
-
-    .menuButtons{
-        display: flex;
-    }
-
-    .links{
-        display: none;
-    }
-
-    .menuLinks{
-        position: absolute;
-        top: 78px;
-        right: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .home{
-        /* justify-content: start; */
         padding: 20px;
+        align-items: flex-start;
     }
-}
 
-@media(max-width: 444px){
     .role{
-        font-size: 80px;
+        font-size: 20vw;
+    }
+
+    .name{
+        text-align: left;
+        font-size: 10vw;
     }
 }

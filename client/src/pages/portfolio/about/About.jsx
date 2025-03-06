@@ -21,7 +21,7 @@ function About(){
                     </div>
                     <div className="other">
                         <h3>other:</h3>
-                        <p>Git, GitHub, postman, RestAPI</p>
+                        <p>Git, GitHub, postman, RestAPI, Docker</p>
                     </div>
                 </div>
             </div>

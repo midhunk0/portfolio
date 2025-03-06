@@ -4,6 +4,24 @@ import React from "react";
 import "./Contacts.css";
 import { useState } from "react";
 
+const contacts=[
+    {
+        name: "email",
+        href: "https://mail.google.com/mail/?view=cm&fs=1&to=midhunrajk009@gmail.com",
+        img: "/mail.png"
+    },
+    {
+        name: "github",
+        href: "https://github.com/midhunk0",
+        img: "/github.png"
+    },
+    {
+        name: "linkedin",
+        href: "https://www.linkedin.com/in/midhunraj-k",
+        img: "/linkedin.png"
+    }
+]
+
 function Contacts(){
     const [messageDetails, setMessageDetails]=useState({
         name: "",
@@ -25,6 +43,7 @@ function Contacts(){
                 credentials: "include"
             });
             const result=await response.json();
+            console.log(result);
             if(response.ok){
                 setMessageDetails({
                     name: "",
@@ -44,48 +63,20 @@ function Contacts(){
             <div className="contactContents">
                 <img className="svg" src="./round.svg"/>
                 <div className="contactsDetails">
-                    <div className="contact top">
-                        <div data-cursor="link" className="contactDetails">
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=midhunrajk009@gmail.com">
-                                <img src="./mail.png" alt="mail"/>
+                    {contacts.map((contact, index)=>(
+                        <div className={`contact ${index===1 ? "middle" : ""}`}key={index}>
+                            <a data-cursor="link" href={contact.href}>
+                                <img src={contact.img} alt={contact.name}/>
+                                <h3>{contact.name}</h3>
                             </a>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=midhunrajk009@gmail.com">
-                                <h3>email</h3>
-                            </a>
-                        </div>
-                        <a data-cursor="link" href="https://mail.google.com/mail/?view=cm&fs=1&to=midhunrajk009@gmail.com">
-                            <img src="./arrow.png" alt="arrow"/>
-                        </a>
-                    </div>
-                    <div className="contact middle">
-                        <div data-cursor="link" className="contactDetails">
-                            <a href="https://www.linkedin.com/in/midhunraj-k/">
-                                <img src="./linkedin.png" alt="mail"/>
-                            </a>
-                            <a href="https://www.linkedin.com/in/midhunraj-k/">
-                                <h3>linkedin</h3>
+                            <a data-cursor="link" href="https://www.linkedin.com/in/midhunraj-k/">
+                                <img src="./arrow.png" alt="arrow"/>
                             </a>
                         </div>
-                        <a data-cursor="link" href="https://www.linkedin.com/in/midhunraj-k/">
-                            <img src="./arrow.png" alt="arrow"/>
-                        </a>
-                    </div>
-                    <div className="contact bottom">
-                        <div data-cursor="link" className="contactDetails">
-                            <a href="https://github.com/midhunk0">
-                                <img src="./github.png" alt="mail"/>
-                            </a>
-                            <a href="https://github.com/midhunk0">
-                                <h3>github</h3>
-                            </a>
-                        </div>
-                        <a data-cursor="link" href="https://github.com/midhunk0">
-                            <img src="./arrow.png" alt="arrow"/>
-                        </a>
-                    </div>
+                    ))}
                 </div>
             </div>
-            <div className="message">
+            <div className="contactMessage">
                 <div className="text">
                     <h2>Ready to bring your project to life? Let&apos;s talk!</h2>
                 </div>
@@ -93,7 +84,7 @@ function Contacts(){
                     <input data-cursor="line" type="text" placeholder="Name" value={messageDetails.name} onChange={(e)=>setMessageDetails({...messageDetails, name: e.target.value})}/>
                     <input data-cursor="line" type="email" placeholder="Email" value={messageDetails.email} onChange={(e)=>setMessageDetails({...messageDetails, email: e.target.value})}/>
                     <textarea data-cursor="line" placeholder="Text" value={messageDetails.message} onChange={(e)=>setMessageDetails({...messageDetails, message: e.target.value})}/>
-                    <button data-cursor="button" type="submit" onClick={sendMessage}>send<img src="./white-arrow.png" alt="arrow"/></button>
+                    <button data-cursor="button" type="button" onClick={sendMessage}>send<img src="./white-arrow.png" alt="arrow"/></button>
                 </form>
             </div>
         </section>

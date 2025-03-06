@@ -19,16 +19,13 @@
 
 .contactContents{
     display: flex;
-    padding: 0 20px;
-    /* flex-direction: column; */
     width: calc(100% - 40px);
 }
 
 .svg{
     padding: 0;
-    height: max-content;
-    border-top: 1px solid #444444;
-    border-bottom: 1px solid #444444;
+    border-top: 2px solid #444444;
+    border-bottom: 2px solid #444444;
 }
 
 .contactsDetails{
@@ -38,37 +35,25 @@
 
 .contact{
     display: flex;
+    width: 100%;
     justify-content: space-between;
     padding: 20px;
     height: 60px;
-    border: 1px solid #444444;
+    border: 2px solid #444444;
     border-right: none;
     align-items: center;
 }
 
-.contactDetails{
+.contact a{
     display: flex;
     gap: 10px;
-}
-
-.contactDetails a{
-    display: flex;
     text-decoration: none;
     padding: 0;
 }
 
-.contactDetails h3{
+.contact h3{
     text-transform: uppercase;
     cursor: pointer;
-}
-
-.contact img{
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.contact h3{
     color: #EDEDED;
 }
 
@@ -77,11 +62,18 @@
     border-bottom: none;
 }
 
-.message{
+.contact img{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.contactMessage{
     display: flex;
     justify-content: space-between;
     margin-top: 10%;
     width: 100%;
+    gap: 20px;
 }
 
 .text{
@@ -97,10 +89,7 @@
 
 .form{
     display: flex;
-    padding: 0 20px;
     flex-direction: column;
-    /* justify-content: end;
-    align-items: end; */
     width: 40%;
     gap: 20px;
 }
@@ -163,6 +152,10 @@
         border-bottom: none;
     }
 
+    .contactsDetails{
+        width: calc(100% - 40px);
+    }
+
     .contact{
         border-left: none;
     }
@@ -178,7 +171,7 @@
         margin-bottom: 20px;
     }
 
-    .message{
+    .contactMessage{
         flex-direction: column;
     }
 

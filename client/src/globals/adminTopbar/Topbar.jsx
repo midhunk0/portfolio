@@ -16,8 +16,6 @@ export default function AdminTopbar(){
     function renderLinks(){
         return(
             <>
-                <a data-cursor="link" onClick={()=>navigationLink("/dashboard/add")}><h3>Add</h3></a>
-                <a data-cursor="link" onClick={()=>navigationLink("/dashboard/projects")}><h3>Projects</h3></a>
                 <a data-cursor="link" onClick={()=>navigationLink("/dashboard/messages")}><h3>Messages</h3></a>
             </>
         )

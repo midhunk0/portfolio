@@ -1,13 +1,11 @@
+// @ts-nocheck
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from "react-router-dom";
 import Login from "./pages/admin/auth/login/Login";
 import Register from "./pages/admin/auth/register/Register";
-import Dashboard from "./pages/admin/dashboard/Dashboard";
-import Add from "./pages/admin/dashboard/add/Add";
-import Projects from "./pages/admin/dashboard/projects/Projects";
-import Messages from "./pages/admin/dashboard/messages/Messages";
+import Messages from "./pages/admin/messages/Messages";
 import Topbar from "./globals/portfolioTopbar/Topbar";
 import Home from "./pages/portfolio/home/Home";
 import About from "./pages/portfolio/about/About";
@@ -15,8 +13,6 @@ import ProjectSection from "./pages/portfolio/projects/Projects";
 import Contacts from "./pages/portfolio/contacts/Contacts";
 import useMousePosition from "./globals/useMousePosition";
 import Cursor from "./components/cursor/Cursor";
-import { MessageProvider } from "./contexts/MessageContext";
-import { ProjectProvider } from "./contexts/ProjectsContext";
 
 function ScrollToSection(){
     const location=useLocation();
@@ -49,6 +45,36 @@ function Portfolio(){
 }
 
 export default function App(){
+    const [isAuthenticated, setIsAuthenticated]=useState(false);
+    const [loading, setLoading]=useState(true);
+
+    const apiUrl=import.meta.env.MODE==="development"
+        ? import.meta.env.VITE_APP_DEV_URL
+        : import.meta.env.VITE_APP_PROD_URL;
+        
+    useEffect(()=>{
+        const verifyUser=async()=>{
+            try{
+                const response=await fetch(`${apiUrl}/fetchUser`, {
+                    method: "GET",
+                    credentials: "include"
+                });
+                setIsAuthenticated(response.ok);
+            } 
+            catch(error){
+                setIsAuthenticated(false);
+                console.log("Error while veriying user: ", error);
+            }
+            finally{
+                setLoading(false);
+            }
+        };
+
+        verifyUser();
+    }, [apiUrl]);
+
+    if(loading) return 
+
     return (
         <Router>
             <Cursor/>
@@ -59,18 +85,7 @@ export default function App(){
                 <Route path="/" element={<Portfolio/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
-                <Route path="/dashboard" element={
-                    <MessageProvider>
-                        <ProjectProvider>
-                            <Dashboard/>
-                        </ProjectProvider>
-                    </MessageProvider>
-                }>
-                    <Route path="" element={<Add/>}/>
-                    <Route path="add" element={<Add/>}/>
-                    <Route path="projects" element={<Projects/>}/>
-                    <Route path="messages" element={<Messages/>}/>
-                </Route>
+                <Route path="/messages" element={isAuthenticated ? <Messages/> : <Navigate to="/login"/>}/>
             </Routes>
         </Router>
     )

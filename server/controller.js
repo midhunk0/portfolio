@@ -8,10 +8,6 @@ const jwt_expires_in="1d";
 
 const sendMessage=async(req, res)=>{
     try{
-        const userId=returnUserId(req, res);
-        if(!userId){
-            return res.status(400).json({ message: "User token not found" });
-        }
         const { name, email, message }=req.body;
         if(!email){
             return res.status(400).json({ message: "Email is required, please enter it" });
@@ -19,7 +15,7 @@ const sendMessage=async(req, res)=>{
         if(!message){
             return res.status(400).json({ message: "Enter some message" });
         }
-        const user=await User.findById(userId);
+        const user=await User.findOne();
         if(!user){
             return res.status(400).json({ message: "User not found" });
         }
@@ -41,7 +37,9 @@ const fetchMessages=async(req, res)=>{
     try{
         const userId=returnUserId(req, res);
         const user=await User.findById(userId);
-        console.log(user);
+        if(!user){
+            return res.status(400).json({ message: "User not logged in" });
+        }
         const messages=user.messages;
         if(!messages.length){
             return res.status(400).json({ message: "There is no messages" })
@@ -95,6 +93,7 @@ const login=async(req, res)=>{
             return res.status(400).json({ message: "Password is required" });
         }
         const user=await User.findOne({ $or: [{ username: credential }, { email: credential }]});
+        console.log(user);
         if(!user){
             return res.status(400).json({ message: "No user found" });
         }
@@ -129,95 +128,10 @@ const fetchUser=async(req, res)=>{
     }
 }
 
-const addProject=async(req, res)=>{
-    const userId=returnUserId(req, res);
-    try{
-        if(!userId){
-            return res.status(400).json({ message: "No userId or token found" });
-        }
-        const { title, description, projectLink, githubLink }=req.body;
-        if(!title){
-            return res.status(400).json({ message: "Title is required" });
-        }
-        if(!description){
-            return res.status(400).json({ message: "Description is required" });
-        }
-        const user=await User.findById(userId);
-        if(!user){
-            return res.status(400).json({ message: "User not found" });
-        }
-        const file=req.file;
-        if(!file){
-            return res.status(400).json({ message: "Image is required" });
-        }
-        let image={
-            imageName: `${Date.now()}-${file.originalname}`,
-            imageType: file.mimetype,
-            image: file.buffer
-        };
-        const project={
-            title, 
-            description, 
-            projectLink,
-            githubLink,
-            image
-        };
-        user.projects.push(project);
-        await user.save();
-        return res.status(200).json({ message: "New project added", project });
-    }
-    catch(err){
-        return res.status(500).json({ message: err });
-    }
-};
-
-const fetchImage=async(req, res)=>{
-    try{
-        const { projectId }=req.params;
-        const user=await User.findOne(
-            { "projects._id": projectId },
-            { "projects.$": 1 }
-        );
-        if(!user){
-            return res.status(400).json({ message: "User not found" });
-        }
-        if(!user.projects.length){
-            return res.status(400).json({ message: "Project not found" });
-        }
-        const project=user.projects[0];
-        res.set("Content-Type", project.image.imageType);
-        return res.status(200).send(project.image.image);
-    }
-    catch(err){
-        return res.status(500).json({ message: err.message });
-    }
-}
-
-const fetchProjects=async(req, res)=>{
-    try{
-        const apiUrl="http://localhost:8081";
-        const user=await User.findOne();
-        if(!user){
-            return res.status(400).json({ message: "User not found" });
-        }
-        const projectsWithImage=user.projects.map(project=>({
-            ...project.toObject(),
-            imageUrl: `${apiUrl}/fetchImage/${project._id}`
-        }));
-        return res.status(200).json(projectsWithImage);
-    }
-    catch(err){
-        return res.status(500).json({ message: err.message });
-    }
-}
-
 module.exports={
     sendMessage,
     fetchMessages,
     register, 
     login,
-    fetchUser,
-    addProject,
-    fetchImage,
-    fetchProjects
+    fetchUser
 };
