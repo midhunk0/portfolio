@@ -38,7 +38,9 @@ function Portfolio(){
             <Topbar/>
             <Home/>
             <About/>
+            {/* <div style={{height: "100vh", background: "red"}}></div> */}
             <ProjectSection/>
+            {/* <div style={{height: "100vh", background: "blue"}}></div> */}
             <Contacts/>
         </>
     )
@@ -79,7 +81,7 @@ export default function App(){
         <Router>
             <Cursor/>
             <div className="background">
-                <video src="/video.mp4" autoPlay muted loop/>
+                {/* <video src="/video.mp4" autoPlay muted loop/> */}
             </div>
             <Routes>
                 <Route path="/" element={<Portfolio/>}/>

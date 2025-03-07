@@ -71,7 +71,7 @@
 .contactMessage{
     display: flex;
     justify-content: space-between;
-    margin-top: 10%;
+    margin-top: 20px;
     width: 100%;
     gap: 20px;
 }
