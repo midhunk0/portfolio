@@ -8,8 +8,13 @@ const cookieParser=require("cookie-parser");
 const port=8081;
 const app=express();
 
+const environment=process.env.NODE_ENV;
+const apiUrl=environment==='development' 
+    ? process.env.FRONT_END_DEV_API
+    : process.env.FRONT_END_PROD_API;
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: apiUrl,
     credentials: true,
 }));
 app.use(express.json());
