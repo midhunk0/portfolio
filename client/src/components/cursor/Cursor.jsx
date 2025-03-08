@@ -18,8 +18,8 @@ const Cursor=()=>{
             setHoverStyle(hoverType);
             switch(hoverType){
                 case "link": case "icon": setSize(36); break;
-                case "role": setSize(200); break;
-                case "name": setSize(150); break;
+                case "role": setSize(230); break;
+                case "name": setSize(180); break;
                 case "button": setSize(50); break;
                 case "heading": setSize(150); break;
                 case "line": setSize(50); break;
@@ -53,10 +53,6 @@ const Cursor=()=>{
     return(
         <motion.div
             className={`mask ${hoverStyle ? `cursor-${hoverStyle}` : ""}`}
-            // style={{
-            //     left: `${x-size/2}px`,
-            //     top: `${y-size/2}px`,
-            // }}
             animate={{
                 WebkitMaskImage: `url(/${maskImage})`,
                 WebkitMaskPosition: `${x-size/2}px ${y-size/2}px`,

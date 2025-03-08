@@ -1,7 +1,6 @@
 .contacts{
     display: flex;
     flex-direction: column;
-    /* height: 100vh; */
     align-items: start;
     justify-content: center;
     padding: 20px;

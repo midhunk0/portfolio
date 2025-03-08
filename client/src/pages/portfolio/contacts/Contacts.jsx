@@ -6,19 +6,19 @@ import { useState } from "react";
 
 const contacts=[
     {
-        name: "email",
-        href: "https://mail.google.com/mail/?view=cm&fs=1&to=midhunrajk009@gmail.com",
-        img: "/mail.png"
-    },
-    {
         name: "github",
-        href: "https://github.com/midhunk0",
+        link: "https://github.com/midhunk0",
         img: "/github.png"
     },
     {
         name: "linkedin",
-        href: "https://www.linkedin.com/in/midhunraj-k",
+        link: "https://www.linkedin.com/in/midhunraj-k",
         img: "/linkedin.png"
+    },
+    {
+        name: "instagram",
+        link: "https://www.instagram.com/_midhun0_",
+        img: "/instagram.png"
     }
 ]
 
@@ -65,11 +65,11 @@ function Contacts(){
                 <div className="contactsDetails">
                     {contacts.map((contact, index)=>(
                         <div className={`contact ${index===1 ? "middle" : ""}`}key={index}>
-                            <a data-cursor="link" href={contact.href}>
+                            <a data-cursor="link" href={contact.link}>
                                 <img src={contact.img} alt={contact.name}/>
                                 <h3>{contact.name}</h3>
                             </a>
-                            <a data-cursor="link" href="https://www.linkedin.com/in/midhunraj-k/">
+                            <a data-cursor="link" href={contact.link}>
                                 <img src="./arrow.png" alt="arrow"/>
                             </a>
                         </div>

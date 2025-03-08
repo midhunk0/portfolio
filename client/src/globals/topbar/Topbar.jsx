@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TopbarComponent } from "../../components/topbar/TopbarComponent";
+import "./Topbar.css";
 
 export default function Topbar(){
     const navigate=useNavigate();
@@ -35,6 +35,21 @@ export default function Topbar(){
     }
 
     return(
-        <TopbarComponent logoFunction={scrollToTop} renderLinks={renderLinks} setShowMenu={setShowMenu} showMenu={showMenu}/>
+        <div className="topbar">
+            <button data-cursor="icon" className="topbar-logo" onClick={scrollToTop}>
+                <img src="/logo.png" alt="logo"/>
+            </button>
+            <div className="topbar-menu">
+                <img data-cursor="icon" src={showMenu ? "/close.png" : "/menu.png"} alt="menu" onClick={()=>setShowMenu(prev=>!prev)}/>
+                {showMenu && (
+                    <div className="topbar-menu-links">
+                        {renderLinks()}
+                    </div>
+                )}
+            </div>
+            <div className="topbar-links">
+                {renderLinks()}
+            </div>
+        </div>
     )
 };

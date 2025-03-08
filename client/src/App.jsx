@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from "r
 import Login from "./pages/admin/auth/login/Login";
 import Register from "./pages/admin/auth/register/Register";
 import Messages from "./pages/admin/messages/Messages";
-import Topbar from "./globals/portfolioTopbar/Topbar";
+import Topbar from "./globals/topbar/Topbar";
 import Home from "./pages/portfolio/home/Home";
 import About from "./pages/portfolio/about/About";
 import ProjectSection from "./pages/portfolio/projects/Projects";
@@ -38,56 +38,24 @@ function Portfolio(){
             <Topbar/>
             <Home/>
             <About/>
-            {/* <div style={{height: "100vh", background: "red"}}></div> */}
             <ProjectSection/>
-            {/* <div style={{height: "100vh", background: "blue"}}></div> */}
             <Contacts/>
         </>
     )
 }
 
 export default function App(){
-    const [isAuthenticated, setIsAuthenticated]=useState(false);
-    const [loading, setLoading]=useState(true);
-
-    const apiUrl=import.meta.env.MODE==="development"
-        ? import.meta.env.VITE_APP_DEV_URL
-        : import.meta.env.VITE_APP_PROD_URL;
-        
-    useEffect(()=>{
-        const verifyUser=async()=>{
-            try{
-                const response=await fetch(`${apiUrl}/fetchUser`, {
-                    method: "GET",
-                    credentials: "include"
-                });
-                setIsAuthenticated(response.ok);
-            } 
-            catch(error){
-                setIsAuthenticated(false);
-                console.log("Error while veriying user: ", error);
-            }
-            finally{
-                setLoading(false);
-            }
-        };
-
-        verifyUser();
-    }, [apiUrl]);
-
-    if(loading) return 
-
     return (
         <Router>
             <Cursor/>
             <div className="background">
-                {/* <video src="/video.mp4" autoPlay muted loop/> */}
+                <video src="/video.mp4" autoPlay muted loop/>
             </div>
             <Routes>
                 <Route path="/" element={<Portfolio/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
-                <Route path="/messages" element={isAuthenticated ? <Messages/> : <Navigate to="/login"/>}/>
+                <Route path="/messages" element={<Messages/>}/>
             </Routes>
         </Router>
     )

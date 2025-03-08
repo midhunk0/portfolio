@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    scrollbar-width: none;
+}
+
+body{
+    height: 100%;
+    font-family: "Roboto";
+}
+
+html{
+    scroll-behavior: smooth;
+}

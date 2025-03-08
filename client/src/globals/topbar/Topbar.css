@@ -1,4 +1,4 @@
-.topbarComponent{
+.topbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,7 +9,7 @@
     z-index: 1000; 
 }
 
-.topbarComponent-logo{
+.topbar-logo{
     display: flex;
     background: none;
     border: none;
@@ -17,27 +17,27 @@
     padding: 0;
 }
 
-.topbarComponent-logo img{
+.topbar-logo img{
     width: 24px;
     height: 24px;
 }
 
-.topbarComponent-menu{
+.topbar-menu{
     display: none;
 }
 
-.topbarComponent-menu img{
+.topbar-menu img{
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
-.topbarComponent-menu-links, .topbarComponent-links{
+.topbar-menu-links, .topbar-links{
     display: flex;
     gap: 20px;
 }
 
-.topbarComponent-links a, .topbarComponent-menu-links a{
+.topbar-links a, .topbar-menu-links a{
     color: #BE3144;
     text-decoration: none;
     width: fit-content;
@@ -47,15 +47,15 @@
 }
 
 @media(max-width: 627px){
-    .topbarComponent-menu{
+    .topbar-menu{
         display: flex;
     }
 
-    .topbarComponent-links{
+    .topbar-links{
         display: none;
     }
 
-    .topbarComponent-menu-links{
+    .topbar-menu-links{
         position: absolute;
         background: black;
         top: 64px;
