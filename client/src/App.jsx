@@ -58,6 +58,7 @@ export default function App(){
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/messages" element={<Messages/>}/>
             </Routes>
+            <Analytics/>
         </Router>
     )
 };
