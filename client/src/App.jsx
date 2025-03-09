@@ -1,6 +1,7 @@
 // @ts-nocheck
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from "react-router-dom";
 import Login from "./pages/admin/auth/login/Login";

@@ -93,7 +93,6 @@ const login=async(req, res)=>{
             return res.status(400).json({ message: "Password is required" });
         }
         const user=await User.findOne({ $or: [{ username: credential }, { email: credential }]});
-        console.log(user);
         if(!user){
             return res.status(400).json({ message: "No user found" });
         }
