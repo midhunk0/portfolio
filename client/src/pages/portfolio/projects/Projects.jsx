@@ -57,7 +57,7 @@ export default function Projects(){
     });
 
     const x=useSpring(
-        useTransform(scrollYProgress, [0.1, 1], ["0%", "-85%"]), 
+        useTransform(scrollYProgress, [0.1, 1], ["0%", "-90%"]), 
         { stiffness: 100, damping: 30, mass: 0.5 }
     ) 
 

@@ -27,7 +27,6 @@
     will-change: transform;
 }
 
-
 .project{
     display: flex;
     flex-direction: column;
@@ -71,6 +70,10 @@
 }
 
 @media(max-width: 1160px){
+    .project{
+        height: 350px;
+    }
+
     .project-image{
         width: 400px;
     }
