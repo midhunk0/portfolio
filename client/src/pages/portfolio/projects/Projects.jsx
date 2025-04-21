@@ -6,46 +6,67 @@ import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 
 const projects=[
     {
-        title: "admin dashboard", 
-        image: "/admin_dashboard.png", 
-        description: "an admin dashboard using react",
-        projectLink: "https://admin-dashboard-midhunk0s-projects.vercel.app",
-        githubLink: "https://github.com/midhunk0/admin-dashboard"
+        title: "bornday", 
+        image: "/bornday.png", 
+        description: "An app to store birthdays of our friends and families and get notified a day before it",
+        projectLink: "https://bornday.vercel.app",
+        githubLink: "https://github.com/midhunk0/bornday"
     },
     {
-        title: "admin dashboard with backend", 
-        image: "/admin_dashboard_with_backend.png", 
-        description: "an admin dashboard using react, and uses backend data",
-        projectLink: "https://admin-dashboard-with-backend.vercel.app",
-        githubLink: "https://github.com/midhunk0/admin-dashboard-with-backend"
+        title: "atomictable", 
+        image: "/atomictable.png", 
+        description: "A periodic table app to explore element details and visualize data with charts.",
+        projectLink: "https://atomictable.vercel.app",
+        githubLink: "https://github.com/midhunk0/periodic-table"
+    },
+    {
+        title: "IPL", 
+        image: "/ipl.png", 
+        description: "An app to view the point tables, match details, and season stats for the Indian Premier League",
+        projectLink: "https://indianpremierleague.vercel.app",
+        githubLink: "https://github.com/midhunk0/ipl"
+    },    
+    {
+        title: "nasa apod", 
+        image: "/nasa_apod.png", 
+        description: "An react appilcation to view picture of the day from nasa and store favourite pictures",
+        projectLink: "https://picofthedaybynasa.vercel.app",
+        githubLink: "https://github.com/midhunk0/nasa-apod"
     },
     {
         title: "todo app", 
         image: "/todo.png", 
-        description: "a todo app, to add, complete, delete todos. also recover todos from trash if needed",
-        projectLink: "https://todo-gamma-self.vercel.app/login",
+        description: "A todo app, to add, complete, delete todos. also recover todos from trash if needed",
+        projectLink: "https://t0du.vercel.app",
         githubLink: "https://github.com/midhunk0/todo"
     },
     {
-        title: "nasa apod", 
-        image: "/nasa_apod.png", 
-        description: "an react appilcation to view picture of the day from nasa and store favourite pictures",
-        projectLink: "https://nasa-apod-ashen-three.vercel.app",
-        githubLink: "https://github.com/midhunk0/nasa-apod"
+        title: "finansier", 
+        image: "/finansier.png", 
+        description: "An admin dashboard in React that displays data from a backend API.",
+        projectLink: "https://finansier.vercel.app",
+        githubLink: "https://github.com/midhunk0/finansier"
     },
     {
-        title: "weather", 
-        image: "/weather.png", 
-        description: "a weather app to get the details of weather at a place",
-        projectLink: "https://weather-midhunk0.vercel.app",
+        title: "vether", 
+        image: "/vether.png", 
+        description: "A weather app to get the details of weather at a place",
+        projectLink: "https://vether.vercel.app",
         githubLink: "https://github.com/midhunk0/weather"
     },
     {
-        title: "bornday", 
-        image: "/bornday.png", 
-        description: "an app to store birthdays of our friends and families and get notified a day before it",
-        projectLink: "https://bornday.vercel.app",
-        githubLink: "https://github.com/midhunk0/bornday"
+        title: "adminis", 
+        image: "/admin_dashboard.png", 
+        description: "An admin dashboard using react",
+        projectLink: "https://adminis-dasboard.vercel.app",
+        githubLink: "https://github.com/midhunk0/admin-dashboard"
+    },
+    {
+        title: "spotify clone", 
+        image: "/spotyf.png", 
+        description: "A clone of the Spotify web app built using React",
+        projectLink: "https://spotyf.vercel.app",
+        githubLink: "https://github.com/midhunk0/spotify_clone"
     },
 ]
 
