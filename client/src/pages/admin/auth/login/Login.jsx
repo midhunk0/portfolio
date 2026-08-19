@@ -28,7 +28,7 @@ export default function Login(){
             });
             const result=await response.json();
             if(response.ok){
-                navigate("/messages");
+                navigate("/dashboard");
                 console.log(result.message);
             }
             else{

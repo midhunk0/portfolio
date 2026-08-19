@@ -1,0 +1,14 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* padding: 20px; */
+    height: calc(100vh - 40px);
+}
+
+.dashboard h1{
+    color: #EDEDED;
+    align-items: flex-start;
+    font-family: "Anton";
+    font-size: 50px;
+}

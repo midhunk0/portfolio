@@ -1,11 +1,11 @@
 .register{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    gap: 20px;
+    min-height: calc(100vh - 80px);
+    padding: 20px 10%;
     justify-content: center;
-    height: calc(100vh - 40px);
-    padding: 20px;
-    gap: 16px;
+    width: min(100%, 500px);
 }
 
 .register h1{
@@ -88,26 +88,18 @@
 }
 
 
-@media(max-width: 1080px){
+@media(max-width: 627px){
     .register{
-        width: 50%;
-    }
-}
-
-@media(max-width: 720px){
-    .register{
-        display: flex;
+        padding: 20px;
         width: calc(100% - 40px);
-        align-items: center;
     }
 
-    .register h1, .register form, .register p{
-        width: 70%;
+    .register h1{
+        font-size: 42px;
     }
-}
 
-@media(max-width: 486px){
-    .register h1, .register form, .register p{
+    .register form,
+    .register p{
         width: 100%;
     }
 }

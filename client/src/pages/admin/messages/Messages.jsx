@@ -18,6 +18,7 @@ export default function Messages(){
                     credentials: "include"
                 });
                 const result=await response.json();
+                console.log(result)
                 if(response.ok){
                     setMessages(result.messages);
                 }

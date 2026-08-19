@@ -1,0 +1,149 @@
+.upload-projects{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* min-height: calc(100vh - 40px); */
+    width: min(100%, 500px);
+    /* padding: 20px 10%; */
+}
+
+.upload-projects h1{
+    color: #EDEDED;
+    align-items: flex-start;
+    font-family: "Anton";
+    font-size: 50px;
+}
+
+.upload-projects .upload-project-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.upload-projects .upload-project-form input,
+.upload-projects .upload-project-form textarea{
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: #EDEDED;
+    color: #171717;
+    padding: 20px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.upload-projects .upload-project-form textarea{
+    min-height: 120px;
+    resize: vertical;
+}
+
+.upload-projects .upload-project-form input::placeholder,
+.upload-projects .upload-project-form textarea::placeholder{
+    color: #BE3144;
+}
+
+.upload-projects .upload-project-form > button{
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #BE3144;
+    color: #EDEDED;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.image-input{
+    width:100%;
+    min-height:96px;
+    box-sizing: border-box;
+    background: #EDEDED;
+    cursor:pointer;
+    transition:.25s;
+    overflow:hidden;
+}
+
+.image-input:hover{
+    border-color:#171717;
+}
+
+.image-placeholder{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    min-height: 92px;
+    padding:18px 20px;
+    box-sizing: border-box;
+}
+
+.image-placeholder img{
+    width:26px;
+    opacity:.7;
+}
+
+.image-placeholder h4{
+    color:#BE3144;
+    font-size:16px;
+    font-weight: 400;
+    margin-bottom:4px;
+}
+
+.image-placeholder p{
+    color:#555555;
+    font-size:14px;
+}
+
+.image-preview{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:16px;
+}
+
+.image-preview img{
+    width:300px;
+    aspect-ratio: 16 / 9;
+    object-fit:cover;
+    background: #171717;
+    flex-shrink:0;
+}
+
+.remove-image{
+    background:#BE3144;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    cursor:pointer;
+}
+
+@media(max-width: 627px){
+    .upload-projects{
+        padding: 20px;
+    }
+
+    .upload-projects h1{
+        font-size: 42px;
+    }
+
+    .upload-projects .upload-project-form{
+        width: 100%;
+    }
+
+    .image-preview{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .image-preview img{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+    }
+
+    .image-info{
+        width: 100%;
+        gap: 12px;
+    }
+}

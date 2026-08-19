@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate, Outlet } from "react-router-dom";
 import Login from "./pages/admin/auth/login/Login";
 import Register from "./pages/admin/auth/register/Register";
 import Messages from "./pages/admin/messages/Messages";
@@ -14,6 +14,10 @@ import ProjectSection from "./pages/portfolio/projects/Projects";
 import Contacts from "./pages/portfolio/contacts/Contacts";
 import useMousePosition from "./globals/useMousePosition";
 import Cursor from "./components/cursor/Cursor";
+import ProtectedRoute from "./ProtectedRoute";
+import Dashboard from "./pages/admin/dashboard/Dashboard";
+import Projects from "./pages/admin/projects/Projects";
+import UploadProject from "./pages/admin/projects/upload/UploadProject";
 
 function ScrollToSection(){
     const location=useLocation();
@@ -56,7 +60,16 @@ export default function App(){
                 <Route path="/" element={<Portfolio/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
-                <Route path="/messages" element={<Messages/>}/>
+                <Route element={
+                        <ProtectedRoute>
+                            <Outlet/>
+                        </ProtectedRoute>
+                    }
+                >
+                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/upload-project" element={<UploadProject/>}/>
+                </Route>
+                <Route path="*" element={<Navigate to="/" replace/>}/>
             </Routes>
             <Analytics/>
         </Router>

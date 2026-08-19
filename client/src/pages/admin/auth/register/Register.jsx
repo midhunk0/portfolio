@@ -29,7 +29,7 @@ export default function Register(){
             });
             const result=await response.json();
             if(response.ok){
-                navigate("/messages");
+                navigate("/dashboard");
                 console.log(result.message);
             }
             else{

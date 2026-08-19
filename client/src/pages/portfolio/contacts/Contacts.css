@@ -91,6 +91,7 @@
     flex-direction: column;
     width: 40%;
     gap: 20px;
+    /* font-family: "Anton"; */
 }
 
 .form input, .form textarea{
@@ -101,6 +102,7 @@
     box-sizing: border-box;
     border: none;
     outline: none;
+    font-family: inherit;
     font-size: 16px;
 }
 
